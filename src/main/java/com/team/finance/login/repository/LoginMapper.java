@@ -1,6 +1,9 @@
 package com.team.finance.login.repository;
 
+import com.team.finance.entity.FmUser;
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Repository;
 
@@ -13,6 +16,8 @@ import org.springframework.stereotype.Repository;
 @Mapper
 public interface LoginMapper {
 
-    @Select("select realname from fm_user where id=#{id}")
-    public String find(int id);
+    @Select("select * from fm_user where username=#{username}")
+    FmUser findFmUseByUername(String name);
+    @Insert("insert into fm_user (username,password) values (#{username},#{password})")
+    int insertFmUser(@Param("username")String username,@Param("password")String password);
 }

@@ -1,8 +1,12 @@
 package com.team.finance.login.controller;
 
+import com.team.finance.entity.AjaxResponse;
+import com.team.finance.entity.FmUser;
 import com.team.finance.login.service.LoginService;
+import com.team.finance.util.PasswordUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -16,7 +20,26 @@ public class LoginController {
     LoginService loginService;
 
     @GetMapping("/login")
-    public String find(int id){
-        return loginService.find(id);
+    public String find(String username,String password){
+        FmUser fmUser=new FmUser();
+        fmUser.setUsername(username);
+        fmUser.setPassword(PasswordUtils.e(password));
+        FmUser fmUser1=loginService.findFmUseByUername(username);
+        if(null!=fmUser1){
+            return "false";
+        }else {
+            return "true";
+        }
+    }
+    @RequestMapping("/register")
+    public AjaxResponse register(String username, String password){
+        AjaxResponse ajaxResponse=new AjaxResponse();
+        int i=loginService.insertFmuUser(username,PasswordUtils.e(password));
+        if(i>0){
+            ajaxResponse.setMsg("success");
+        }else {
+            ajaxResponse.setMsg("error");
+        }
+        return ajaxResponse;
     }
 }
