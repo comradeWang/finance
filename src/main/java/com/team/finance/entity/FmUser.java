@@ -3,16 +3,26 @@ package com.team.finance.entity;
 import com.team.finance.util.BaseEntity;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
+import javax.persistence.*;
 import java.util.Date;
 
 /**
  * 用户表
  */
 @Entity
-public class FmUser extends BaseEntity {
+public class FmUser {
 
+    @Id
+    @GeneratedValue( strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     @Column
     private  String username;
