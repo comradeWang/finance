@@ -1,8 +1,5 @@
 server:
   port: 8081
-
-girl:
-  age: 18
-  cupSize: F
-
-content: "${cupSize},${age} "
+security:
+  basic:
+    enabled: false
