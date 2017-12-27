@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Table(name = "fm_apply_void")
-public class FmApplyvoid {
+public class FmApplyResult {
     /**
      * 主键，自增列
      */
