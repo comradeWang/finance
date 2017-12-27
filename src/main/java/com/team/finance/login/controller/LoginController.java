@@ -36,12 +36,18 @@ public class LoginController {
     @RequestMapping("/register")
     public AjaxResponse register(String username, String password){
         AjaxResponse ajaxResponse=new AjaxResponse();
-        int i=loginService.insertFmuUser(username,PasswordUtils.e(password));
-        if(i>0){
-            ajaxResponse.setMsg("success");
-        }else {
-            ajaxResponse.setMsg("error");
+        FmUser fmUser = loginService.findFmUserNameRepeat(username);
+        if(fmUser==null) {
+            int j = loginService.insertFmuUser(username, PasswordUtils.e(password));
+            if (j > 0) {
+                ajaxResponse.setMsg("success");
+            } else {
+                ajaxResponse.setMsg("error");
+            }
+            return ajaxResponse;
+        }else{
+            ajaxResponse.setMsg("repeat");
+            return ajaxResponse;
         }
-        return ajaxResponse;
     }
 }

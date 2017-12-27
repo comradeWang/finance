@@ -1,5 +1,6 @@
 package com.team.finance.login.service;
 
+import com.team.finance.entity.FmUser;
 import com.team.finance.login.repository.LoginMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,6 +20,10 @@ public class LoginService {
     }
     public  int insertFmuUser(String username,String password){
         return loginMapper.insertFmUser(username,password);
+    }
+
+    public FmUser findFmUserNameRepeat(String username){
+        return loginMapper.findFmUserNameRepeat(username);
     }
 
 }
