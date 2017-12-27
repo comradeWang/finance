@@ -6,7 +6,7 @@ import com.team.finance.login.service.LoginService;
 import com.team.finance.util.PasswordUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -31,7 +31,7 @@ public class LoginController {
             return "true";
         }
     }
-    @RequestMapping("/register")
+    @PostMapping("/register")
     public AjaxResponse register(String username, String password){
         AjaxResponse ajaxResponse=new AjaxResponse();
         int i=loginService.insertFmuUser(username,PasswordUtils.e(password));
