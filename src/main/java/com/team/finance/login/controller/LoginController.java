@@ -25,8 +25,6 @@ public class LoginController {
         fmUser.setUsername(username);
         fmUser.setPassword(PasswordUtils.e(password));
         String pwd = loginService.findFmUseByUername(username);
-        System.out.println(pwd);
-        System.out.println(PasswordUtils.e(password));
         if(pwd.equals(PasswordUtils.e(password))){
             return "true";
         }else {
