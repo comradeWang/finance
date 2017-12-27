@@ -24,11 +24,13 @@ public class LoginController {
         FmUser fmUser=new FmUser();
         fmUser.setUsername(username);
         fmUser.setPassword(PasswordUtils.e(password));
-        FmUser fmUser1=loginService.findFmUseByUername(username);
-        if(null!=fmUser1){
-            return "false";
-        }else {
+        String pwd = loginService.findFmUseByUername(username);
+        System.out.println(pwd);
+        System.out.println(PasswordUtils.e(password));
+        if(pwd.equals(PasswordUtils.e(password))){
             return "true";
+        }else {
+            return "false";
         }
     }
     @RequestMapping("/register")
