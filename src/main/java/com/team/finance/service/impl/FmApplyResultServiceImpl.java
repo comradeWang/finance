@@ -1,8 +1,8 @@
 package com.team.finance.service.impl;
 
 
-import com.team.finance.dao.FmApplyvoidMapper;
-import com.team.finance.service.FmApplyvoidService;
+import com.team.finance.dao.FmApplyResultMapper;
+import com.team.finance.service.FmApplyResultService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -14,8 +14,8 @@ import javax.annotation.Resource;
  */
 @Service
 @Transactional
-public class FmApplyvoidServiceImpl   implements FmApplyvoidService {
+public class FmApplyResultServiceImpl   implements FmApplyResultService {
     @Resource
-    private FmApplyvoidMapper fmApplyvoidMapper;
+    private FmApplyResultMapper fmApplyResultMapper;
 
 }

@@ -2,7 +2,7 @@ package com.team.finance.controller;
 
 
 import com.team.finance.entity.FmApplyvoid;
-import com.team.finance.service.FmApplyvoidService;
+import com.team.finance.service.FmApplyResultService;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -16,9 +16,9 @@ import javax.annotation.Resource;
 */
 @RestController
 @RequestMapping("/fm/apply/void")
-    public class FmApplyvoidController {
+    public class FmApplyResultController {
     @Resource
-    private FmApplyvoidService fmApplyvoidService;
+    private FmApplyResultService fmApplyResultService;
 
     @PostMapping("/add")
     public void add(FmApplyvoid fmApplyvoid) {
