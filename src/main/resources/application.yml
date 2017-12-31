@@ -32,7 +32,3 @@ spring:
     connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
   jpa:
     show-sql: true
-    properties:
-      hibernate:
-        hbm2ddl:
-          auto: create
