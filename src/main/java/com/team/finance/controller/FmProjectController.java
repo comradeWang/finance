@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by CodeGenerator on 2017/12/27.
@@ -45,16 +46,16 @@ public class FmProjectController {
     @GetMapping("/getAllfmProject")
     public AjaxResponse getAllfmProject() {
         AjaxResponse ajaxResponse = new AjaxResponse();
-        List<FmProject> list = fmProjectService.selectAll();
+        List<Map<String,Object>> list = fmProjectService.selectAll();
         ajaxResponse.setData(list);
         return ajaxResponse;
     }
 
     @PutMapping("/updateProject")
-    public AjaxResponse updateProject(FmProject fmProject) {
+    public AjaxResponse updateProject(Long id,String type,String showValue) {
         AjaxResponse ajaxResponse = new AjaxResponse();
-        /*Long id,String type,String showValue*/
-        int a = fmProjectService.updateProject(fmProject.getId(), fmProject.getType(), fmProject.getShowValue());
+        FmProject fmProject  =  new FmProject();
+        int a = fmProjectService.updateProject(fmProject.getId(), fmProject.getType(), fmProject.getShow_value());
         if (a == 1) {
             ajaxResponse.setSuccessCode(1);
             ajaxResponse.setMsg("更新成功");

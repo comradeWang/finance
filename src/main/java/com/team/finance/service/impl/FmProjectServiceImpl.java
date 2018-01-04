@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.util.List;
+import java.util.Map;
 
 
 /**
@@ -22,7 +23,7 @@ public class FmProjectServiceImpl   implements FmProjectService {
 
     //查询fm_project表内所有数据 状态为 1
     @Override
-    public List<FmProject> selectAll() {
+    public List<Map<String,Object>> selectAll() {
         return fmProjectMapper.selectAll();
     }
 

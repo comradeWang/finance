@@ -1,15 +1,14 @@
 package com.team.finance.service;
 
-import com.team.finance.entity.FmProject;
-
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by CodeGenerator on 2017/12/27.
  */
 public interface FmProjectService  {
     //查询fm_project表内所有数据 状态为 1
-    List<FmProject> selectAll();
+    List<Map<String,Object>> selectAll();
 
     //修改fm_project表内的一条数据
     int updateProject(Long id,String type,String showValue);

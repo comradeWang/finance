@@ -21,25 +21,25 @@ public class FmProject {
      * 项目编号（类别内唯一，创建后不可修改）
      */
     @Column(name = "project_id")
-    private String projectId;
+    private String project_id;
 
     /**
      * 项目显示值
      */
     @Column(name = "show_value")
-    private String showValue;
+    private String show_value;
 
     /**
      * 项目创建时间（不可修改、
      */
     @Column(name = "create_time")
-    private String createTime;
+    private String create_time;
 
     /**
      * 项目创建用户（不可修改fm_user.id）
      */
     @Column(name = "create_id")
-    private String createId;
+    private Long create_id;
 
     /**
      * 屏蔽状态,1 不审核 2 屏蔽
@@ -63,36 +63,36 @@ public class FmProject {
         this.type = type;
     }
 
-    public String getProjectId() {
-        return projectId;
+    public String getProject_id() {
+        return project_id;
     }
 
-    public void setProjectId(String projectId) {
-        this.projectId = projectId;
+    public void setProject_id(String project_id) {
+        this.project_id = project_id;
     }
 
-    public String getShowValue() {
-        return showValue;
+    public String getShow_value() {
+        return show_value;
     }
 
-    public void setShowValue(String showValue) {
-        this.showValue = showValue;
+    public void setShow_value(String show_value) {
+        this.show_value = show_value;
     }
 
-    public String getCreateTime() {
-        return createTime;
+    public String getCreate_time() {
+        return create_time;
     }
 
-    public void setCreateTime(String createTime) {
-        this.createTime = createTime;
+    public void setCreate_time(String create_time) {
+        this.create_time = create_time;
     }
 
-    public String getCreateId() {
-        return createId;
+    public Long getCreate_id() {
+        return create_id;
     }
 
-    public void setCreateId(String createId) {
-        this.createId = createId;
+    public void setCreate_id(Long create_id) {
+        this.create_id = create_id;
     }
 
     public String getState() {
