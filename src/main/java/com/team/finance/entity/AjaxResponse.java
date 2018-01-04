@@ -17,10 +17,19 @@ public class AjaxResponse<T> {
      */
     private String msg;
 
+    private  Integer successCode;
     /**
      * 具体数据内容
      */
     private T data;
+
+    public Integer getSuccessCode() {
+        return successCode;
+    }
+
+    public void setSuccessCode(Integer successCode) {
+        this.successCode = successCode;
+    }
 
     public Integer getErrorCode() {
         return errorCode;
