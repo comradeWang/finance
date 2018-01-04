@@ -15,11 +15,15 @@ public class LoginService {
 
     @Autowired
     LoginMapper loginMapper;
-    public FmUser findFmUseByUername(String username){
+    public String findFmUseByUername(String username){
         return loginMapper.findFmUseByUername(username);
     }
     public  int insertFmuUser(String username,String password){
         return loginMapper.insertFmUser(username,password);
+    }
+
+    public FmUser findFmUserNameRepeat(String username){
+        return loginMapper.findFmUserNameRepeat(username);
     }
 
 }

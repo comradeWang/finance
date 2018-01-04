@@ -16,8 +16,10 @@ import org.springframework.stereotype.Repository;
 @Mapper
 public interface LoginMapper {
 
-    @Select("select * from fm_user where username=#{username}")
-    FmUser findFmUseByUername(String name);
+    @Select("select password from fm_user where username=#{username}")
+    String findFmUseByUername(String username);
     @Insert("insert into fm_user (username,password) values (#{username},#{password})")
     int insertFmUser(@Param("username")String username,@Param("password")String password);
+    @Select("select * from fm_user where username=#{username}")
+    FmUser findFmUserNameRepeat(String username);
 }

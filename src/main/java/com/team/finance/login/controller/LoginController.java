@@ -6,7 +6,7 @@ import com.team.finance.login.service.LoginService;
 import com.team.finance.util.PasswordUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -24,22 +24,28 @@ public class LoginController {
         FmUser fmUser=new FmUser();
         fmUser.setUsername(username);
         fmUser.setPassword(PasswordUtils.e(password));
-        FmUser fmUser1=loginService.findFmUseByUername(username);
-        if(null!=fmUser1){
-            return "false";
-        }else {
+        String pwd = loginService.findFmUseByUername(username);
+        if(pwd.equals(PasswordUtils.e(password))){
             return "true";
+        }else {
+            return "false";
         }
     }
-    @RequestMapping("/register")
+    @PostMapping("/register")
     public AjaxResponse register(String username, String password){
         AjaxResponse ajaxResponse=new AjaxResponse();
-        int i=loginService.insertFmuUser(username,PasswordUtils.e(password));
-        if(i>0){
-            ajaxResponse.setMsg("success");
-        }else {
-            ajaxResponse.setMsg("error");
+        FmUser fmUser = loginService.findFmUserNameRepeat(username);
+        if(fmUser==null) {
+            int j = loginService.insertFmuUser(username, PasswordUtils.e(password));
+            if (j > 0) {
+                ajaxResponse.setMsg("success");
+            } else {
+                ajaxResponse.setMsg("error");
+            }
+            return ajaxResponse;
+        }else{
+            ajaxResponse.setMsg("repeat");
+            return ajaxResponse;
         }
-        return ajaxResponse;
     }
 }

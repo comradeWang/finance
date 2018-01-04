@@ -10,7 +10,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 * @create: 2017/12/26 0026 14:01
 **/
 @SpringBootApplication
-@MapperScan("com.team.finance.*.repository")
+@MapperScan("com.team.finance.*.dao")
 public class FinanceApplication {
 
 	public static void main(String[] args) {
