@@ -30,7 +30,7 @@ public class FmCompanyAccountController {
 
     @PostMapping("/update")
     public void update(FmCompanyAccount fmCompanyAccount) {
-    
+
     }
 
     @PostMapping("/detail")
