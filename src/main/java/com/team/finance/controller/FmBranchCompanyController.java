@@ -54,7 +54,7 @@ public class FmBranchCompanyController {
     @PostMapping("/updateBranchCompany")
     public AjaxResponse updateBranchCompany(FmBranchCompany fmBranchCompany){
         AjaxResponse ajaxResponse=new AjaxResponse();
-        int i=fmBranchCompanyService.updateBranchCompany(fmBranchCompany.getName(),fmBranchCompany.getCorporationName(),fmBranchCompany.getAddress(),fmBranchCompany.getPhone(),fmBranchCompany.getArea(),fmBranchCompany.getSphereOfBusiness(),fmBranchCompany.getRemark(),fmBranchCompany.getId());
+        int i=fmBranchCompanyService.updateBranchCompany(fmBranchCompany.getName(),fmBranchCompany.getCorporation_name(),fmBranchCompany.getAddress(),fmBranchCompany.getPhone(),fmBranchCompany.getArea(),fmBranchCompany.getSphere_of_business(),fmBranchCompany.getRemark(),fmBranchCompany.getId());
         if(i==0){
             ajaxResponse.setMsg("更新成功！");
         }else {
