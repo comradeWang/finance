@@ -51,10 +51,9 @@ public class FmProjectController {
         return ajaxResponse;
     }
 
-    @PutMapping("/updateProject")
-    public AjaxResponse updateProject(Long id,String type,String showValue) {
+    @PostMapping("/updateProject")
+    public AjaxResponse updateProject(FmProject fmProject) {
         AjaxResponse ajaxResponse = new AjaxResponse();
-        FmProject fmProject  =  new FmProject();
         int a = fmProjectService.updateProject(fmProject.getId(), fmProject.getType(), fmProject.getShow_value());
         if (a == 1) {
             ajaxResponse.setSuccessCode(1);
@@ -66,7 +65,7 @@ public class FmProjectController {
         return ajaxResponse;
     }
 
-    @PutMapping("/updateProjectState")
+    @PostMapping("/updateProjectState")
     public AjaxResponse updateProjectState(FmProject fmProject) {
         AjaxResponse ajaxResponse = new AjaxResponse();
         int a = fmProjectService.updateProjectState(fmProject.getId(), fmProject.getState());
