@@ -50,6 +50,13 @@ public class FmProjectController {
         ajaxResponse.setData(list);
         return ajaxResponse;
     }
+    @GetMapping("/getAllfmDictionary")
+    public AjaxResponse getAllfmDictionary(){
+        AjaxResponse ajaxResponse = new AjaxResponse();
+        List<Map<String,Object>> list = fmProjectService.selectAllDictionary();
+        ajaxResponse.setData(list);
+        return ajaxResponse;
+    }
 
     @PostMapping("/updateProject")
     public AjaxResponse updateProject(FmProject fmProject) {

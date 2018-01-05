@@ -13,7 +13,7 @@ import java.util.Map;
 @Mapper
 public interface FmProjectMapper {
 
-    @Select("select fmP.*,fmU.username from fm_project fmP left join fm_user fmU on fmP.create_id = fmU.id where state = 1")
+    @Select("select fmP.*,fmU.username,fmD.type_name from fm_project fmP left join fm_dictionary fmD on fmD.type_id = fmP.type left join fm_user fmU on fmP.create_id = fmU.id where state = 1")
     List<Map<String,Object>> selectAll();
 
     @Update("update fm_project set type=#{type},show_value=#{showValue}  where id=#{id}")
@@ -21,5 +21,8 @@ public interface FmProjectMapper {
 
     @Update("update fm_project set state=#{state} where id=#{id}")
     int updateProjectState(@Param("id")Long id,@Param("state")String state);
+
+    @Select("select * from fm_dictionary")
+    List<Map<String,Object>> selectAllDictionary();
 
 }

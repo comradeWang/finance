@@ -2,7 +2,6 @@ package com.team.finance.service.impl;
 
 
 import com.team.finance.dao.FmProjectMapper;
-import com.team.finance.entity.FmProject;
 import com.team.finance.service.FmProjectService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -37,5 +36,10 @@ public class FmProjectServiceImpl   implements FmProjectService {
     @Override
     public int updateProjectState(Long id, String state) {
         return fmProjectMapper.updateProjectState(id,state);
+    }
+
+    @Override
+    public List<Map<String, Object>> selectAllDictionary() {
+        return fmProjectMapper.selectAllDictionary();
     }
 }

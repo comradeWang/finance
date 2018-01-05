@@ -16,4 +16,6 @@ public interface FmProjectService  {
     //屏蔽一条数据 修改其 状态位 1显示 2屏蔽
     int updateProjectState(Long id,String state);
 
+    List<Map<String,Object>> selectAllDictionary();
+
 }
